@@ -12,6 +12,7 @@ Welcome to the **dsa** repository! This project contains implementations of comm
 Here are some of the data structures included in this repository:
 
 - **Segment Tree**
+- **Fenwick Tree**
 
 ## Algorithms
 
