@@ -1,52 +1,59 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-pair<int,int> manacher_odd(string s) {
+vector<int> manacher_odd(string s)
+{
     int n = s.size();
     s = '$' + s + '^';
 
     vector<int> p(n + 2);
     int l = 1, r = 1;
 
-    for (int i = 1;i <= n;i ++) {
+    for (int i = 1; i <= n; i++)
+    {
         p[i] = max(0, min(r - i, p[l + (r - i)]));
 
-        while (s[i - p[i] - 1] == s[i + p[i] + 1]) {
-            p[i] ++;
+        while (s[i - p[i] - 1] == s[i + p[i] + 1])
+        {
+            p[i]++;
         }
 
-        if (i + p[i] > r) {
+        if (i + p[i] > r)
+        {
             l = i - p[i];
             r = i + p[i];
         }
     }
 
-    int c = 0, m = 0;
-    for (int i = 1;i <= n;i ++) {
-        if (p[i] > m) {
-            m = p[i];
-            c = i;
-        }
-    }
-
-    return make_pair(c, m);
+    return vector<int>(begin(p) + 1, end(p) - 1);
 }
 
-void manacher(string& s) {
+vector<int> manacher(string &s)
+{
     string t;
-    for (auto c : s) {
+    for (auto c : s)
+    {
         t += string("#") + c;
     }
 
     auto res = manacher_odd(t + '#');
-    int c = res.first;
-    int m = res.second;
-
-    cout<<s.substr((c - 1 - m)/2, m);
+    return res;
 }
 
-int main() {
+int main()
+{
     string s = "forgeeksskeegfor";
 
-    manacher(s);
+    vector<int> res = manacher(s);
+
+    int c = 0, m = 0;
+    int n = res.size();
+    for (int i = 0;i < n;i ++) {
+        if (res[i] > m) {
+            m = res[i];
+            c = i;
+        }
+    }
+
+    cout<<s.substr((c - m)/2, m);
 }
