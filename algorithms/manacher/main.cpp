@@ -37,12 +37,12 @@ vector<int> manacher(string &s)
     }
 
     auto res = manacher_odd(t + '#');
-    return res;
+    return vector<int>(begin(res) + 1, end(res) - 1);
 }
 
 int main()
 {
-    string s = "forgeeksskeegfor";
+    string s = "oabcbadef";
 
     vector<int> res = manacher(s);
 
@@ -55,5 +55,5 @@ int main()
         }
     }
 
-    cout<<s.substr((c - m)/2, m);
+    cout<<s.substr((c - m + 1)/2, m);
 }
