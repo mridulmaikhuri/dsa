@@ -13,8 +13,10 @@ Here are some of the data structures included in this repository:
 
 - **Segment Tree**
 - **Fenwick Tree**
+- **UnionFind**
 
 ## Algorithms
+- **manacher**
 
 The repository includes the following algorithms:
 
