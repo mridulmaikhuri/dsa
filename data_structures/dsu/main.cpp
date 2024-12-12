@@ -37,3 +37,7 @@ public:
         return find(u) == find(v);
     }
 };
+
+int main() {
+    return 0;
+}

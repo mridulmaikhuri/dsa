@@ -17,6 +17,7 @@ Here are some of the data structures included in this repository:
 
 ## Algorithms
 - **manacher**
+- **merge sort**
 
 The repository includes the following algorithms:
 
